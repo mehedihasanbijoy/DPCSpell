@@ -1,2 +1,13 @@
-# Spell-Checker
-A Denoising Transformer-based Spelling Error Corrector for Resource Scarce Languages
+<h1 align="center">Corpus Creation</h1>
+ 
+ ### Word Accumulation
+ 
+ 
+ ### Error Annexation
+ 
+ 
+ ### Error Filtration
+ 
+ 
+ ### Corpus Statistic and Error Percentage Validation
+ 
