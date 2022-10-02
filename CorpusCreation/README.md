@@ -6,7 +6,9 @@ python scraper.py
 ```
  
  ### Error Annexation
- 
+  ```
+python errors.py
+```
  
  ### Error Filtration
  
