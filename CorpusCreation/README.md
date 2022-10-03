@@ -1,17 +1,20 @@
 <h1 align="center">Corpus Creation</h1>
  
- ### Word Accumulation
- ```
+### Word Accumulation
+```
 python scraper.py
 ```
  
- ### Error Annexation
-  ```
+### Error Annexation
+```
 python errors.py
 ```
  
- ### Error Filtration
+### Error Filtration
  
  
- ### Corpus Statistic and Error Percentage Validation
- #### Real-World Data
+ 
+### Corpus Statistic and Error Percentage Validation
+```
+python corpus_stats_valid.py --email username@gmail.com --password facebook_password
+```
