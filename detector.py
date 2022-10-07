@@ -25,7 +25,7 @@ import sys
 
 # -------------------------------
 # to run the detector
-# python detectorTemp.py --HID_DIM 128 --ENC_LAYERS 3 --DEC_LAYERS 3 --ENC_HEADS 8 --DEC_HEADS 8 --ENC_PF_DIM 256 --DEC_PF_DIM 256 --ENC_DROPOUT 0.1 --DEC_DROPOUT 0.1 --CLIP 1 --N_EPOCHS 100 --LEARNING_RATE 0.0005
+# python detector.py --HID_DIM 128 --ENC_LAYERS 3 --DEC_LAYERS 3 --ENC_HEADS 8 --DEC_HEADS 8 --ENC_PF_DIM 256 --DEC_PF_DIM 256 --ENC_DROPOUT 0.1 --DEC_DROPOUT 0.1 --CLIP 1 --N_EPOCHS 100 --LEARNING_RATE 0.0005
 # -------------------------------
 
 def main():
