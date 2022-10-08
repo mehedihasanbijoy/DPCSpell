@@ -5,6 +5,14 @@
 
 ![dpcspell](https://user-images.githubusercontent.com/58245357/194469283-c7dbfc0b-391e-4214-a6a2-99b7ba2dc512.png)
 
+
+## Running Test
+| Operating System  | Requirement | Remark |
+| ------------- | ------------- | ------------- |
+| Ubuntu 16.04.7 LTS  | requirements_ubuntu.txt  | :heavy_check_mark: Successful |
+| Windows 10  | requirements_windows.txt  | - |
+
+
 ## Detector Network
 
 ```
