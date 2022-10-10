@@ -121,11 +121,11 @@ def evaluation_report2(test_data, SRC, TRG, WORD, model, DEVICE):
             modified_flags.append(0)
 
     evaluation_df = pd.DataFrame({
-        'Error': erroneous_words,
-        'Predicton': predicted_words,
-        'Target': correct_words,
-        'Word': words,
-        'Correction': flags
+        'Error': erroneous_words,  # Error
+        'Predicton': predicted_words,  # ErrorBlanksPredD1
+        'Target': correct_words,  # ErrorBlanksActual
+        'Word': words,  # Word
+        'Correction': flags  # EBP_Flag_D1
     })
 
     corrected_instances = evaluation_df['Correction'].values.sum()
