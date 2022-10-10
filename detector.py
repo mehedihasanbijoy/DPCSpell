@@ -1,6 +1,7 @@
 from utils import (
     word2char, basic_tokenizer, count_parameters, initialize_weights,
-    save_model, load_model, error_df, train_valid_test_df, mask2str
+    save_model, load_model, error_df, train_valid_test_df, mask2str,
+    error_df_2, error_df_3, merge_dfs
 )
 from transformer import (
     Encoder, EncoderLayer, MultiHeadAttentionLayer,
@@ -8,7 +9,7 @@ from transformer import (
     Seq2Seq
 )
 from pipeline import train, evaluate
-from metrics import evaluation_report
+from metrics import evaluation_report, evaluation_report2
 
 import pandas as pd
 from sklearn.model_selection import train_test_split
@@ -17,16 +18,12 @@ import torch
 import torch.nn as nn
 import os
 import gc
+import sys
 import argparse
 
 import warnings as wrn
 wrn.filterwarnings('ignore')
-import sys
 
-# -------------------------------
-# to run the detector
-# python detector.py --HID_DIM 128 --ENC_LAYERS 3 --DEC_LAYERS 3 --ENC_HEADS 8 --DEC_HEADS 8 --ENC_PF_DIM 256 --DEC_PF_DIM 256 --ENC_DROPOUT 0.1 --DEC_DROPOUT 0.1 --CLIP 1 --N_EPOCHS 100 --LEARNING_RATE 0.0005
-# -------------------------------
 
 def main():
     parser = argparse.ArgumentParser()
@@ -48,14 +45,18 @@ def main():
     torch.manual_seed(SEED)
     torch.cuda.manual_seed(SEED)
 
-    df = pd.read_csv('./Dataset/sec_dataset_III_v3.csv')
+    df = pd.read_csv('./Dataset/sec_dataset_III_v3_new_masked_b.csv')
     df_copy = df.copy()
+    df['Word'] = df['Word'].apply(word2char)
     df['Error'] = df['Error'].apply(word2char)
     df['Mask'] = df['Mask'].apply(mask2str)
     df['Mask'] = df['Mask'].apply(word2char)
+    df['ErrorBlanks'] = df['ErrorBlanks'].apply(mask2str)
+    df['ErrorBlanks'] = df['ErrorBlanks'].apply(word2char)
+    df = df.sample(frac=1).reset_index(drop=True)
     df = df.iloc[:, [4, 1, 2]]
 
-    train_df, valid_df, test_df = train_valid_test_df(df, test_size=.15, valid_size=.05)
+    train_df, valid_df, test_df = train_valid_test_df(df, test_size=0.15, valid_size=0.05)
 
     train_df.to_csv('./Dataset/train.csv', index=False)
     valid_df.to_csv('./Dataset/valid.csv', index=False)
@@ -69,9 +70,13 @@ def main():
         tokenize=basic_tokenizer, lower=False,
         init_token='<sos>', eos_token='<eos>', batch_first=True
     )
+    WORD = Field(
+        tokenize=basic_tokenizer, lower=False,
+        init_token='<sos>', eos_token='<eos>', batch_first=True
+    )
     fields = {
         'Error': ('src', SRC),
-        'Mask': ('trg', TRG)
+        'ErrorBlanks': ('trg', TRG)
     }
 
     train_data, valid_data, test_data = TabularDataset.splits(
@@ -83,8 +88,9 @@ def main():
         fields=fields
     )
 
-    SRC.build_vocab(train_data, min_freq=10)
-    TRG.build_vocab(train_data, min_freq=10)
+    SRC.build_vocab(train_data, min_freq=100)
+    TRG.build_vocab(train_data, min_freq=50)
+    WORD.build_vocab(train_data, min_freq=100)
 
     # ------------------------------
     DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
@@ -110,7 +116,7 @@ def main():
     # ------------------------------
     gc.collect()
     torch.cuda.empty_cache()
-    # ------------------------------
+    # -----------------------------
 
     train_iterator, valid_iterator, test_iterator = BucketIterator.splits(
         (train_data, valid_data, test_data),
@@ -131,13 +137,16 @@ def main():
 
     SRC_PAD_IDX = SRC.vocab.stoi[SRC.pad_token]
     TRG_PAD_IDX = TRG.vocab.stoi[TRG.pad_token]
+
     model = Seq2Seq(enc, dec, SRC_PAD_IDX, TRG_PAD_IDX, DEVICE).to(DEVICE)
     model.apply(initialize_weights)
+    # print(f'The model has {count_parameters(model):,} trainable parameters')
 
     optimizer = torch.optim.Adam(model.parameters(), lr=LEARNING_RATE)
     criterion = nn.CrossEntropyLoss(ignore_index=TRG_PAD_IDX)
 
-    epoch, best_loss = 1, 1e10
+    epoch = 1
+    best_loss = 1e10
     if os.path.exists(PATH):
         checkpoint, epoch, train_loss = load_model(model, PATH)
         best_loss = train_loss
@@ -151,7 +160,67 @@ def main():
             save_model(model, train_loss, epoch, PATH)
 
     # ---------------------
-    eval_df = evaluation_report(test_data, SRC, TRG, model, DEVICE)
+    # eval_df = evaluation_report(test_data, SRC, TRG, model, DEVICE)
+    # ---------------------
+    error_types = [
+        'Homonym Error',  # 123
+        'Typo Deletion',  # 115767
+        'Typo (Avro) Substituition',  # 119573
+        'Typo (Bijoy) Substituition',  # 119864
+        'Cognitive Error',  # 108227
+        'Run-on Error',  # 124895
+        'Split-word Error (Left)',  # 62890
+        'Split-word Error (Random)',  # 124895
+        'Split-word Error (Right)',  # 13985
+        'Split-word Error (both)',  # 12800
+        'Typo Insertion',  # 124807
+        'Typo Transposition',  # 123245
+        'Visual Error',  # 117391
+        'Visual Error (Combined Character)'  # 17617
+    ]
+    # ---------------------
+    df = pd.read_csv('./Dataset/sec_dataset_III_v3_new_masked_b.csv')
+    df['Word'] = df['Word'].apply(word2char)
+    df['Error'] = df['Error'].apply(word2char)
+    df['Mask'] = df['Mask'].apply(mask2str)
+    df['Mask'] = df['Mask'].apply(word2char)
+    df['ErrorBlanks'] = df['ErrorBlanks'].apply(mask2str)
+    df['ErrorBlanks'] = df['ErrorBlanks'].apply(word2char)
+    df = df.sample(frac=1).reset_index(drop=True)
+    df = df.iloc[:, [0, 1, -2, 2]]
+
+    train_df, valid_df, test_df = train_valid_test_df(df, test_size=0.000001, valid_size=0.000001)
+
+    train_df.to_csv('./Dataset/train.csv', index=False)
+    valid_df.to_csv('./Dataset/valid.csv', index=False)
+    test_df.to_csv('./Dataset/test.csv', index=False)
+    # ---------------------
+    for error_name in error_types:
+        print(f'------\nError Type: {error_name}\n------')
+        error_df_3(df, error_name)
+
+        fields = {
+            'Error': ('src', SRC),
+            'ErrorBlanks': ('trg', TRG),
+            'Word': ('word', WORD)
+        }
+
+        error_data, _ = TabularDataset.splits(
+            path='./Dataset',
+            train='error.csv',
+            test='error.csv',
+            format='csv',
+            fields=fields
+        )
+
+        eval_df = evaluation_report2(error_data, SRC, TRG, WORD, model, DEVICE)
+        eval_df['ErrorType'] = [error_name for _ in range(len(eval_df))]
+
+        error_name = error_name.replace(' ', '').replace('(', '').replace(')', '')
+        eval_df.to_csv(f'./Dataframes/detector_{error_name}.csv', index=False)
+        print('\n\n')
+    # ---------------------
+    merge_dfs(network='detector')
     # ---------------------
 
 
