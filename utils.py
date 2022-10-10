@@ -72,6 +72,51 @@ def train_valid_test_df2(df, test_size, valid_size):
 
 
 # ---------------------------
+def merge_dfs(network='detector'):
+    df_names = [
+        f'{network}_CognitiveError.csv',
+        f'{network}_HomonymError.csv',
+        f'{network}_Run-onError.csv',
+        f'{network}_Split-wordErrorLeft.csv',
+        f'{network}_Split-wordErrorRandom.csv',
+        f'{network}_Split-wordErrorRight.csv',
+        f'{network}_Split-wordErrorboth.csv',
+        f'{network}_TypoAvroSubstituition.csv',
+        f'{network}_TypoBijoySubstituition.csv',
+        f'{network}_TypoDeletion.csv',
+        f'{network}_TypoInsertion.csv',
+        f'{network}_TypoTransposition.csv',
+        f'{network}_VisualError.csv',
+        f'{network}_VisualErrorCombinedCharacter.csv'
+    ]
+    
+    df = pd.DataFrame()
+
+    for df_name in df_names:
+        df_path = os.path.join('./Dataframes', df_name)
+        temp_df = pd.read_csv(df_path)
+        temp_df['ErrorType'] = [df_name.split('.')[0].split('_')[-1]
+                                for _ in range(len(temp_df))]
+        df = pd.concat([df, temp_df])
+
+    df = df.iloc[:, :]
+
+    if network=='detector':
+        df.rename(
+            columns = {
+                'Predicton':'ErrorBlanksPredD1', 
+                'Target':'ErrorBlanksActual', 
+                'Correction':'EBP_Flag_D1', 
+            }, 
+            inplace = True
+        )
+        df = df[['Error', 'Word', 'ErrorBlanksPredD1', 'ErrorBlanksActual', 'EBP_Flag_D1', 'ErrorType']]
+
+    df.to_csv(f'./Dataset/{detector}_preds.csv', index=False)  # sec_dataset_III_v3_masked_d1_gen.csv
+# ---------------------------
+
+
+# ---------------------------
 def error_df(df, error='Cognitive Error'):
     df = df.loc[df['ErrorType'] == error]
     df['Word'] = df['Word'].apply(word2char)
@@ -92,8 +137,8 @@ def error_df_2(df, error='Cognitive Error'):
     idx = int(len(df)/1)
     df = df.iloc[:idx, [1, 0]]
     #
-    if(len(df) >= 10000):
-        df = df.iloc[:10000, :]
+    # if(len(df) >= 10000):
+    #     df = df.iloc[:10000, :]
     #
     df.to_csv('./Dataset/error.csv', index=False)
 # ---------------------------
