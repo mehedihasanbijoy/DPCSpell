@@ -24,6 +24,13 @@ or manually **download** and **extract** the github repository of DPCSpell.
 
 ## Environment Setup
 ### Create Virtual Environment
+```
+conda env create -f environment.yml (for Ubuntu 16.04.7 LTS)
+or
+conda env create -f environment.yml (for Ubuntu 18.04.6 LTS)
+or
+conda env create -f environment.yml (for Windows 10)
+```
 
 ### Activate the Environment
 ```
@@ -40,19 +47,22 @@ gdown https://drive.google.com/drive/folders/1vfCAqqXy0ZTL8cPKR-K5q5coBnNv2Zxf?u
 or manually <b>download</b> the folder from <a href="https://drive.google.com/drive/folders/1vfCAqqXy0ZTL8cPKR-K5q5coBnNv2Zxf?usp=sharing" target="_blank">here</a> and keep the extracted files into <b>./Dataset/</b>
 </p>
 
-## Detector Network
+
+## Training and Evaluation of DPCSpell
+
+### Detector Network
 
 ```
 python detector.py --HID_DIM 128 --ENC_LAYERS 5 --DEC_LAYERS 5 --ENC_HEADS 8 --DEC_HEADS 8 --ENC_PF_DIM 256 --DEC_PF_DIM 256 --ENC_DROPOUT 0.1 --DEC_DROPOUT 0.1 --CLIP 1 --LEARNING_RATE 0.0005 --N_EPOCHS 100 
 ```
 
-## Purificator Network
+### Purificator Network
 
 ```
 python purificator.py --HID_DIM 128 --ENC_LAYERS 5 --DEC_LAYERS 5 --ENC_HEADS 8 --DEC_HEADS 8 --ENC_PF_DIM 256 --DEC_PF_DIM 256 --ENC_DROPOUT 0.1 --DEC_DROPOUT 0.1 --CLIP 1 --LEARNING_RATE 0.0005 --N_EPOCHS 100 
 ```
 
-## Corrector Network
+### Corrector Network
 
 ```
 
