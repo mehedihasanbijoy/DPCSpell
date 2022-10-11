@@ -14,6 +14,32 @@
 | Windows 10  | requirements_windows.txt  | - |
 
 
+## Get Started
+
+```
+git clone https://github.com/mehedihasanbijoy/DPCSpell.git
+```
+or manually **download** and **extract** the github repository of DPCSpell.
+
+
+## Environment Setup
+### Create Virtual Environment
+
+### Activate the Environment
+```
+conda activate DPCSpell
+```
+
+
+
+## Prepare Bangla SEC Corpus
+```
+gdown https://drive.google.com/drive/folders/1vfCAqqXy0ZTL8cPKR-K5q5coBnNv2Zxf?usp=sharing -O ./Dataset --folder
+```
+<p>
+or manually <b>download</b> the folder from <a href="https://drive.google.com/drive/folders/1vfCAqqXy0ZTL8cPKR-K5q5coBnNv2Zxf?usp=sharing" target="_blank">here</a> and keep the extracted files into <b>./Dataset/</b>
+</p>
+
 ## Detector Network
 
 ```
