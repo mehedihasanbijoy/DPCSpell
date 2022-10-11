@@ -3,6 +3,8 @@ import torch
 import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
+import os
+
 import warnings as wrn
 wrn.filterwarnings('ignore')
 
@@ -112,7 +114,8 @@ def merge_dfs(network='detector'):
         )
         df = df[['Error', 'Word', 'ErrorBlanksPredD1', 'ErrorBlanksActual', 'EBP_Flag_D1', 'ErrorType']]
 
-    df.to_csv(f'./Dataset/{detector}_preds.csv', index=False)  # sec_dataset_III_v3_masked_d1_gen.csv
+    df.to_csv(f'./Dataset/{network}_preds.csv', index=False)  # sec_dataset_III_v3_masked_d1_gen.csv (detector)
+                                                               # (purificator)
 # ---------------------------
 
 
