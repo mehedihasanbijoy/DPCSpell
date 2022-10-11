@@ -45,8 +45,8 @@ def main():
     torch.manual_seed(SEED)
     torch.cuda.manual_seed(SEED)
 
-    df = pd.read_csv('./Dataset/sec_dataset_III_v3_new_masked_b.csv')
-    df_copy = df.copy()
+    # df = pd.read_csv('./Dataset/sec_dataset_III_v3_new_masked_b.csv')
+    df = pd.read_csv('./Dataset/corpus.csv')
     df['Word'] = df['Word'].apply(word2char)
     df['Error'] = df['Error'].apply(word2char)
     df['Mask'] = df['Mask'].apply(mask2str)
@@ -54,7 +54,8 @@ def main():
     df['ErrorBlanks'] = df['ErrorBlanks'].apply(mask2str)
     df['ErrorBlanks'] = df['ErrorBlanks'].apply(word2char)
     df = df.sample(frac=1).reset_index(drop=True)
-    df = df.iloc[:, [4, 1, 2]]
+    # df = df.iloc[:, [4, 1, 2]]
+    df = df[['ErrorBlanks', 'Error', 'ErrorType']]
 
     train_df, valid_df, test_df = train_valid_test_df(df, test_size=0.15, valid_size=0.05)
 
@@ -179,7 +180,8 @@ def main():
         'Visual Error (Combined Character)'  # 17617
     ]
     # ---------------------
-    df = pd.read_csv('./Dataset/sec_dataset_III_v3_new_masked_b.csv')
+    # df = pd.read_csv('./Dataset/sec_dataset_III_v3_new_masked_b.csv')
+    df = pd.read_csv('./Dataset/corpus.csv')
     df['Word'] = df['Word'].apply(word2char)
     df['Error'] = df['Error'].apply(word2char)
     df['Mask'] = df['Mask'].apply(mask2str)
@@ -187,9 +189,10 @@ def main():
     df['ErrorBlanks'] = df['ErrorBlanks'].apply(mask2str)
     df['ErrorBlanks'] = df['ErrorBlanks'].apply(word2char)
     df = df.sample(frac=1).reset_index(drop=True)
-    df = df.iloc[:, [0, 1, -2, 2]]
+    # df = df.iloc[:, [0, 1, -2, 2]]
+    df = df[['Word', 'Error', 'ErrorBlanks', 'ErrorType']]
 
-    train_df, valid_df, test_df = train_valid_test_df(df, test_size=0.000001, valid_size=0.000001)
+    train_df, valid_df, test_df = train_valid_test_df(df, test_size=1./1e10, valid_size=1./1e10)
 
     train_df.to_csv('./Dataset/train.csv', index=False)
     valid_df.to_csv('./Dataset/valid.csv', index=False)
