@@ -13,6 +13,7 @@
 | Ubuntu 18.04.6 LTS (Google Colab)  | requirements_colab.txt  | - |
 | Windows 10  | requirements_windows.txt  | - |
 
+<br>
 
 ## Get Started
 
@@ -21,9 +22,10 @@ git clone https://github.com/mehedihasanbijoy/DPCSpell.git
 ```
 or manually **download** and **extract** the github repository of DPCSpell.
 
+<br>
 
 ## Environment Setup
-### Create Virtual Environment
+### Create A Virtual Environment
 ```
 conda env create -f environment.yml (for Ubuntu 16.04.7 LTS)
 or
@@ -37,7 +39,7 @@ conda env create -f environment.yml (for Windows 10)
 conda activate DPCSpell
 ```
 
-
+<br>
 
 ## Prepare Bangla SEC Corpus
 ```
@@ -47,6 +49,7 @@ gdown https://drive.google.com/drive/folders/1vfCAqqXy0ZTL8cPKR-K5q5coBnNv2Zxf?u
 or manually <b>download</b> the folder from <a href="https://drive.google.com/drive/folders/1vfCAqqXy0ZTL8cPKR-K5q5coBnNv2Zxf?usp=sharing" target="_blank">here</a> and keep the extracted files into <b>./Dataset/</b>
 </p>
 
+<br>
 
 ## Training and Evaluation of DPCSpell
 
