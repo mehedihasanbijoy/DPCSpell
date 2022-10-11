@@ -73,6 +73,6 @@ python purificator.py --HID_DIM 128 --ENC_LAYERS 5 --DEC_LAYERS 5 --ENC_HEADS 8 
 
 <br>
 
-## Benchmarking Bangla SEC
+## Benchmarking Bangla SEC Task
 
 ![benchmark](https://user-images.githubusercontent.com/58245357/195144459-0150f456-f06b-4aff-93f5-36b1fb76ea42.png)
