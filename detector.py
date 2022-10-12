@@ -27,6 +27,16 @@ wrn.filterwarnings('ignore')
 
 def main():
     parser = argparse.ArgumentParser()
+    parser.add_argument("--CORPUS", help="Path of the Corpus", type=str, default="./Dataset/corpus.csv", 
+        choices=[
+            "./Dataset/corpus.csv",  # Bangla SEC parallel corpus
+            "./Dataset/corpus2.csv",  # Bangla SEC parallel corpus for running test
+            "./Dataset/Hindi/corpus_hindi.csv", 
+            "./Dataset/Telugu/corpus_telugu.csv",
+            "./Dataset/Hindi/corpus_hindi_enhanced.csv", 
+            "./Dataset/Telugu/corpus_telugu_enhanced.csv"
+        ]
+    )
     parser.add_argument("--HID_DIM", help="Hidden Dimension", type=int, default=128, choices=[64, 128, 256])
     parser.add_argument("--ENC_LAYERS", help="Number of Encoder Layers", type=int, default=3, choices=[3, 5, 7])
     parser.add_argument("--DEC_LAYERS", help="Number of Decoder Layers", type=int,default=3, choices=[3, 5, 7])
