@@ -41,7 +41,7 @@ conda activate DPCSpell
 
 <br>
 
-## Prepare Bangla SEC Corpus
+## Prepare SEC Corpora 
 ```
 gdown https://drive.google.com/drive/folders/1vfCAqqXy0ZTL8cPKR-K5q5coBnNv2Zxf?usp=sharing -O ./Dataset --folder
 ```
