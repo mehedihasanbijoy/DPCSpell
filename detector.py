@@ -56,7 +56,8 @@ def main():
     torch.cuda.manual_seed(SEED)
 
     # df = pd.read_csv('./Dataset/sec_dataset_III_v3_new_masked_b.csv')
-    df = pd.read_csv('./Dataset/corpus.csv')
+    # df = pd.read_csv('./Dataset/corpus.csv')
+    df = pd.read_csv(args.CORPUS)
     df['Word'] = df['Word'].apply(word2char)
     df['Error'] = df['Error'].apply(word2char)
     df['Mask'] = df['Mask'].apply(mask2str)
