@@ -1,4 +1,4 @@
-<h1 align="center">GRUSeq2Seq</h1>
+<h1 align="center">ConvSeq2Seq</h1>
 
 ## Activate the Environment
 ```
@@ -17,7 +17,7 @@ or manually <b>download</b> the folder from <a href="https://drive.google.com/dr
 
 <br>
 
-## Training and Evaluation of GRUSeq2Seq
+## Training and Evaluation of ConvSeq2Seq
 ```
-python main.py --CORPUS "./Dataset/corpus.csv" --ENC_EMB_DIM 128 --DEC_EMB_DIM 128 --ENC_HIDDEN_DIM 256 --DEC_HIDDEN_DIM 512 --ENC_DROPOUT 0.1 --DEC_DROPOUT 0.1 --MAX_LEN 48 --CLIP 1 --BATCH_SIZE 256 --LEARNING_RATE 0.0005 --N_EPOCHS 100
+python main.py --CORPUS "./Dataset/corpus.csv" --EMB_DIM 128 --ENC_LAYERS 5 --DEC_LAYERS 5 --ENC_KERNEL_SIZE 3 --DEC_KERNEL_SIZE 3 --ENC_DROPOUT 0.2 --DEC_DROPOUT 0.2 --CLIP 0.1 --BATCH_SIZE 256 --LEARNING_RATE 0.0005 --N_EPOCHS 100
 ```
