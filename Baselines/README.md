@@ -24,7 +24,7 @@
   
   <tr>
     <td>DTransformer</td>
-    <td><i><a href=" " target="_blank"> </a></i></td>
+    <td><i><a href="https://github.com/mehedihasanbijoy/DPCSpell/tree/main/Baselines/DTransformer" target="_blank">DPCSpell/Baselines/DTransformer</a></i></td>
   </tr>
   
   <tr>
