@@ -16,8 +16,8 @@
 | Operating System  | Requirement | Remark |
 | ------------- | ------------- | ------------- |
 | Ubuntu 16.04.7 LTS  | requirements_ubuntu.txt  | :heavy_check_mark: Successful |
-| Ubuntu 18.04.6 LTS (Google Colab)  | requirements_colab.txt  | - |
-| Windows 10  | requirements_windows.txt  | - |
+| Ubuntu 18.04.6 LTS (Google Colab)  | requirements_colab.txt  | :heavy_check_mark: Successful |
+| Windows 10  | requirements_windows.txt  | :heavy_check_mark: Successful |
 
 <br>
 
