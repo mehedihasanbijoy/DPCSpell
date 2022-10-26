@@ -1,10 +1,16 @@
 <h1 align="center">DPCSpell</h1>
-<h2 align="center">
+<p align="center">
   A Transformer-based Detector-Purificator-Corrector Framework for Spelling Error Correction of Bangla and Resource Scarce Indic Languages    
-</h2>
+</p>
 
-![dpcspell](https://user-images.githubusercontent.com/58245357/194469283-c7dbfc0b-391e-4214-a6a2-99b7ba2dc512.png)
+<!-- ![dpcspell](https://user-images.githubusercontent.com/58245357/194469283-c7dbfc0b-391e-4214-a6a2-99b7ba2dc512.png) -->
+<!-- ![DPCSpellGif2](https://user-images.githubusercontent.com/58245357/197951922-8859c491-0c8e-44b4-a8f0-4b774122a060.gif) -->
+<!-- ![DPCSpellGif](https://user-images.githubusercontent.com/58245357/197949190-ebdcf496-98c3-4506-897e-b2ef9a4efc29.gif) -->
 
+## 
+
+## How DPCSpell works?
+![DPCSpellGif](https://user-images.githubusercontent.com/58245357/197949190-ebdcf496-98c3-4506-897e-b2ef9a4efc29.gif)
 
 ## Running Test
 | Operating System  | Requirement | Remark |
