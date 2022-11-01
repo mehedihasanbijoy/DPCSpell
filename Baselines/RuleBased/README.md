@@ -17,7 +17,7 @@ or manually <b>download</b> the folder from <a href="https://drive.google.com/dr
 
 <br>
 
-## Training and Evaluation of GRUSeq2Seq
+## Training and Evaluation of RuleBased
 ```
 python rule_based.py
 ```
