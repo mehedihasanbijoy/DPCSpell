@@ -9,7 +9,7 @@
   
   <tr>
     <td>RuleBased</td>
-    <td><i><a href=" " target="_blank"> </a></i></td>
+    <td><i><a href="https://github.com/mehedihasanbijoy/DPCSpell/tree/main/Baselines/RuleBased" target="_blank">DPCSpell/Baselines/RuleBased</a></i></td>
   </tr>
   
   <tr>
