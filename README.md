@@ -1,7 +1,9 @@
 <h1 align="center">DPCSpell</h1>
 <p align="center">
-  A Transformer-based Detector-Purificator-Corrector Framework for Spelling Error Correction of Bangla and Resource Scarce Indic Languages    
+  A Transformer-based Detector-Purificator-Corrector Framework for Spelling Error Correction of Bangla and Resource Scarce Indic Languages </br> <a href="https://arxiv.org/" target="_blank">arXiv</a>
 </p>
+
+
 
 <!-- ![dpcspell](https://user-images.githubusercontent.com/58245357/194469283-c7dbfc0b-391e-4214-a6a2-99b7ba2dc512.png) -->
 <!-- ![DPCSpellGif2](https://user-images.githubusercontent.com/58245357/197951922-8859c491-0c8e-44b4-a8f0-4b774122a060.gif) -->
