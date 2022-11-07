@@ -1,6 +1,6 @@
 <h1 align="center">DPCSpell</h1>
 <p align="center">
-  A Transformer-based Detector-Purificator-Corrector Framework for Spelling Error Correction of Bangla and Resource Scarce Indic Languages </br> <a href="https://arxiv.org/" target="_blank">arXiv</a>
+  A Transformer-based Detector-Purificator-Corrector Framework for Spelling Error Correction of Bangla and Resource Scarce Indic Languages </br> Preprint — <a href="https://arxiv.org/pdf/xxxx.pdf" target="_blank">https://arxiv.org/pdf/xxxx.pdf</a>
 </p>
 
 
