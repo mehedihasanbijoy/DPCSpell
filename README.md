@@ -1,6 +1,6 @@
 <h1 align="center">DPCSpell</h1>
 <p align="center">
-  A Transformer-based Detector-Purificator-Corrector Framework for Spelling Error Correction of Bangla and Resource Scarce Indic Languages </br> Preprint — <a href="https://arxiv.org/pdf/xxxx.pdf" target="_blank">https://arxiv.org/pdf/xxxx.pdf</a>
+  A Transformer-based Detector-Purificator-Corrector Framework for Spelling Error Correction of Bangla and Resource Scarce Indic Languages </br> Preprint — <a href="https://arxiv.org/abs/2211.03730" target="_blank">https://arxiv.org/abs/2211.03730</a>
 </p>
 
 
@@ -17,9 +17,9 @@
 ## Running Test
 | Operating System  | Requirement | Remark |
 | ------------- | ------------- | ------------- |
-| Ubuntu 16.04.7 LTS  | requirements_ubuntu.txt  | :heavy_check_mark: Successful |
-| Ubuntu 18.04.6 LTS (Google Colab)  | requirements_colab.txt  | :heavy_check_mark: Successful |
-| Windows 10  | requirements_windows.txt  | :heavy_check_mark: Successful |
+| Ubuntu 16.04.7 LTS  | requirements_u.yml  | :heavy_check_mark: Successful |
+| Ubuntu 18.04.6 LTS (Google Colab)  | requirements_c.txt  | :heavy_check_mark: Successful |
+| Windows 10  | requirements_w.yml  | :heavy_check_mark: Successful |
 
 <br>
 
@@ -35,12 +35,11 @@ or manually **download** and **extract** the github repository of DPCSpell.
 ## Environment Setup
 ### Create A Virtual Environment
 ```
-conda env create -f environment.yml (for Ubuntu 16.04.7 LTS)
+conda env create -f requirements_u.yml (for Ubuntu 16.04.7 LTS)
 or
-conda env create -f environment.yml (for Ubuntu 18.04.6 LTS)
-or
-conda env create -f environment.yml (for Windows 10)
+conda env create -f requirements_w.yml (for Windows 10)
 ```
+<!-- conda env create -f requirements_c.txt (for Ubuntu 18.04.6 LTS in Colab) -->
 
 ### Activate the Environment
 ```
