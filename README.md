@@ -12,7 +12,8 @@
 ## 
 
 ## How DPCSpell works?
-![DPCSpellGif](https://user-images.githubusercontent.com/58245357/197949190-ebdcf496-98c3-4506-897e-b2ef9a4efc29.gif)
+<!-- ![DPCSpellGif](https://user-images.githubusercontent.com/58245357/197949190-ebdcf496-98c3-4506-897e-b2ef9a4efc29.gif) -->
+![dpcspell](https://user-images.githubusercontent.com/58245357/201864934-ebd28fa7-17e2-4482-9534-81c29e02bf3f.gif)
 
 ## Running Test
 | Operating System  | Requirement | Remark |
