@@ -51,10 +51,10 @@ conda activate DPCSpell
 
 ## Prepare SEC Corpora 
 ```
-gdown https://drive.google.com/drive/folders/1vfCAqqXy0ZTL8cPKR-K5q5coBnNv2Zxf?usp=sharing -O ./Dataset --folder
+gdown https://drive.google.com/drive/folders/1_sWSi-LFsvuYh9c5GBMDd4V6_uM8yYjH?usp=share_link -O ./Dataset --folder
 ```
 <p>
-or manually <b>download</b> the folder from <a href="https://drive.google.com/drive/folders/1vfCAqqXy0ZTL8cPKR-K5q5coBnNv2Zxf?usp=sharing" target="_blank">here</a> and keep the extracted files into <b>./Dataset/</b>
+or manually <b>download</b> the folder from <a href="https://drive.google.com/drive/folders/1_sWSi-LFsvuYh9c5GBMDd4V6_uM8yYjH?usp=share_link" target="_blank">here</a> and keep the extracted files into <b>./Dataset/</b>
 </p>
 
 <br>
