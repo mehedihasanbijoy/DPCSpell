@@ -19,7 +19,7 @@
 | Operating System  | Requirement | Remark |
 | ------------- | ------------- | ------------- |
 | Ubuntu 16.04.7 LTS  | requirements_u.yml  | :heavy_check_mark: Successful |
-| Ubuntu 18.04.6 LTS (Google Colab)  | requirements_c.txt  | :heavy_check_mark: Successful |
+| Ubuntu 18.04.6 LTS (Google Colab)  | requirements_c.txt  | :heavy_check_mark: Successful* |
 | Windows 10  | requirements_w.yml  | :heavy_check_mark: Successful |
 
 <br>
