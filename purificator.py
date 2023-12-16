@@ -57,7 +57,7 @@ def main():
     df = df.loc[df['Length'] <= 48]  # 48 works
 
     df = df.sample(frac=1).reset_index(drop=True)
-    df = df[['ErrorBlanksActual', 'MaskErrorBlank', 'ErrorType']]
+    df = df[['Word', 'MaskErrorBlank', 'ErrorType']]
 
     train_df, valid_df, test_df = train_valid_test_df(df, test_size=0.15, valid_size=0.05)
 
