@@ -1,6 +1,6 @@
 <h1 align="center">DPCSpell</h1>
 <p align="center">
-  A Transformer-based Detector-Purificator-Corrector Framework for Spelling Error Correction of Bangla and Resource Scarce Indic Languages </br> Preprint — <a href="https://arxiv.org/abs/2211.03730" target="_blank">https://arxiv.org/abs/2211.03730</a>
+  A transformer-based spelling error correction framework for Bangla and resource scarce Indic languages </br> Link — <a href="https://www.sciencedirect.com/science/article/pii/S088523082400086X" target="_blank">Computer Speech & Language</a>
 </p>
 
 
@@ -84,3 +84,21 @@ python corrector.py --HID_DIM 128 --ENC_LAYERS 5 --DEC_LAYERS 5 --ENC_HEADS 8 --
 ## Benchmarking Bangla SEC Task
 
 ![benchmark](https://user-images.githubusercontent.com/58245357/195144459-0150f456-f06b-4aff-93f5-36b1fb76ea42.png)
+
+
+## BibTeX Entry and Citation Info
+
+```
+@article{bijoy2024transformer,
+  title={A transformer based spelling error correction framework for Bangla and resource scarce Indic languages},
+  author={Bijoy, Mehedi Hasan and Hossain, Nahid and Islam, Salekul and Shatabda, Swakkhar},
+  journal={Computer Speech \& Language},
+  volume = {89},
+  pages = {101703},
+  year = {2025},
+  issn = {0885-2308},
+  doi = {https://doi.org/10.1016/j.csl.2024.101703},
+  url = {https://www.sciencedirect.com/science/article/pii/S088523082400086X},
+  publisher={Elsevier}
+}
+```
