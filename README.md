@@ -1,6 +1,6 @@
 <h1 align="center">DPCSpell</h1>
 <p align="center">
-  A transformer-based spelling error correction framework for Bangla and resource scarce Indic languages </br> Link — <a href="https://www.sciencedirect.com/science/article/pii/S088523082400086X" target="_blank">Computer Speech & Language</a>
+  A transformer-based spelling error correction framework for Bangla and resource scarce Indic languages </br> <a href="https://www.sciencedirect.com/science/article/pii/S088523082400086X" target="_blank">Paper @ Computer Speech & Language</a> and <a href="https://huggingface.co/datasets/mehedihasanbijoy/BanglaSEC" target="_blank">Dataset @ HuggingFace</a>
 </p>
 
 
