@@ -89,16 +89,13 @@ python corrector.py --HID_DIM 128 --ENC_LAYERS 5 --DEC_LAYERS 5 --ENC_HEADS 8 --
 ## BibTeX Entry and Citation Info
 
 ```
-@article{bijoy2024transformer,
-  title={A transformer based spelling error correction framework for Bangla and resource scarce Indic languages},
+@article{bijoy2025transformer,
+  title={A transformer-based spelling error correction framework for Bangla and resource scarce Indic languages},
   author={Bijoy, Mehedi Hasan and Hossain, Nahid and Islam, Salekul and Shatabda, Swakkhar},
   journal={Computer Speech \& Language},
-  volume = {89},
-  pages = {101703},
-  year = {2025},
-  issn = {0885-2308},
-  doi = {https://doi.org/10.1016/j.csl.2024.101703},
-  url = {https://www.sciencedirect.com/science/article/pii/S088523082400086X},
+  volume={89},
+  pages={101703},
+  year={2025},
   publisher={Elsevier}
 }
 ```
